@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -55,6 +57,13 @@ public class JwtUtil {
         // if the key paris doesn't exist, will create and save them
         if (!privateKeyFile.exists() || !publicKeyFile.exists()) {
             generateAndSaveKeyPair(privateKeyFile, publicKeyFile);
+            User user = new User();
+            user.setUsername("osharif");
+            user.setEmail("osharif");
+            user.setName("omar");
+            user.setPassword(new BCryptPasswordEncoder().encode("123456789"));
+
+            userRepository.save(user);
         }
 
         byte[] privateKeyBytes = Files.readAllBytes(privateKeyFile.toPath());
@@ -101,6 +110,11 @@ public class JwtUtil {
     public String extractUsername(String token) {
         System.out.println(extractAllClaims(token));
         return extractClaim(token, Claims::getSubject);
+    }
+
+    public String extractId(String token) {
+        System.out.println(extractAllClaims(token));
+        return extractClaim(token, Claims::getId);
     }
 
     public Date extractExpiration(String token) {
@@ -157,7 +171,10 @@ public class JwtUtil {
     }
 
     public Boolean validateToken(String token, String username) {
+        final String extractedId = extractId(token);
+        final Token token1 = tokenService.getToken(extractedId);
         final String extractedUsername = extractUsername(token);
-        return (extractedUsername.equals(username) && !isTokenExpired(token));
+
+        return ( !token1.isRevoked() && token1.getUsername().equals(username) && extractedUsername.equals(username) && !(new Date(token1.getExpires_at().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()).before(new Date())) && !isTokenExpired(token));
     }
 }

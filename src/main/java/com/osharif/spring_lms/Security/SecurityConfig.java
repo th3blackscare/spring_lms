@@ -2,7 +2,6 @@ package com.osharif.spring_lms.Security;
 
 import com.osharif.spring_lms.Security.Service.CustomUserDetailsService;
 import com.osharif.spring_lms.Security.filters.JwtRequestFilter;
-import com.osharif.spring_lms.Security.filters.ServiceAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,8 +27,6 @@ public class SecurityConfig {
     @Autowired
     private CustomUserDetailsService userDetailsService;
 
-    @Autowired
-    private ServiceAuthenticationFilter serviceAuthenticationFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

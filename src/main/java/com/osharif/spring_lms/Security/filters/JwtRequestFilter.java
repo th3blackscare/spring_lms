@@ -29,13 +29,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
-//        System.out.println("calling jwt");
-//        final String serviceHeader = request.getHeader("X-SERVICE-TO-SERVICE");
-//        if (request.getHeader("X-SERVICE-TO-SERVICE") != null) {
-//            System.out.println("from jwt");
-//            chain.doFilter(request, response); // Let ServiceAuthenticationFilter handle it
-//            return; // Important! Stop further processing in this filter
-//        }
 
 
         final String authorizationHeader = request.getHeader("Authorization");
@@ -50,6 +43,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+            boolean vaild = jwtUtil.validateToken(jwt, userDetails.getUsername());
+            System.out.println(vaild);
             if (jwtUtil.validateToken(jwt, userDetails.getUsername())) {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails, null, userDetails.getAuthorities());
