@@ -93,7 +93,9 @@ public class Patron {
     public boolean isActive() {
         return isActive;
     }
-    public void setActive(boolean active) {}
+    public void setActive(boolean active) {
+        this.isActive = active;
+    }
 
     @Override
     public String toString() {

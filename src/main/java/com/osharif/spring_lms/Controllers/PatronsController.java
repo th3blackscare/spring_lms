@@ -36,14 +36,14 @@ public class PatronsController {
 //    POST /api/patrons: Add a new patron to the system.
     @PostMapping("/")
     @ResponseBody
-    public Patron createPatron(@RequestBody patronDTO patron){
+    public Patron createPatron(patronDTO patron){
         return patronService.createPatron(patron);
     }
 
 //    PUT /api/patrons/{id}: Update an existing patron's information.
     @PutMapping("/{id}")
     @ResponseBody
-    public Patron updatePatron(@PathVariable("id") Long id, @RequestBody patronDTO patron){
+    public Patron updatePatron(@PathVariable("id") Long id, patronDTO patron){
         return patronService.update(id,patron);
     }
 

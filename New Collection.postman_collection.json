@@ -1,0 +1,719 @@
+{
+	"info": {
+		"_postman_id": "b5bd4c4a-e019-4369-813f-63e4b70fcc51",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11883484"
+	},
+	"item": [
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Add Book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test api",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "api user",
+									"type": "text"
+								},
+								{
+									"key": "publisher",
+									"value": "api env",
+									"type": "text"
+								},
+								{
+									"key": "isbn",
+									"value": "111222-555-777",
+									"type": "text"
+								},
+								{
+									"key": "publishedDate",
+									"value": "2021-02-15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/books/",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBook",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test api",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "api user",
+									"type": "text"
+								},
+								{
+									"key": "publisher",
+									"value": "api env",
+									"type": "text"
+								},
+								{
+									"key": "isbn",
+									"value": "111222-555-777",
+									"type": "text"
+								},
+								{
+									"key": "publishedDate",
+									"value": "2021-02-15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/books/14",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBooks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test api",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "api user",
+									"type": "text"
+								},
+								{
+									"key": "publisher",
+									"value": "api env",
+									"type": "text"
+								},
+								{
+									"key": "isbn",
+									"value": "111222-555-777",
+									"type": "text"
+								},
+								{
+									"key": "publishedDate",
+									"value": "2021-02-15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/books/",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test api update",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "api user",
+									"type": "text"
+								},
+								{
+									"key": "publisher",
+									"value": "api env",
+									"type": "text"
+								},
+								{
+									"key": "isbn",
+									"value": "111222-555-777",
+									"type": "text"
+								},
+								{
+									"key": "publishedDate",
+									"value": "2021-02-15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/books/14",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test api update",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "api user",
+									"type": "text"
+								},
+								{
+									"key": "publisher",
+									"value": "api env",
+									"type": "text"
+								},
+								{
+									"key": "isbn",
+									"value": "111222-555-777",
+									"type": "text"
+								},
+								{
+									"key": "publishedDate",
+									"value": "2021-02-15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/books/14",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"14"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patron",
+			"item": [
+				{
+					"name": "Get Patrons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/patrons/",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"patrons",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patron",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/patrons/6",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"patrons",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Patron",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "api",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Cairo",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01000455834",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "2000-04-03",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/patrons/",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"patrons",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patron",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "api",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "user update",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Cairo",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01000455834",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "2000-04-03",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/patrons/6",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"patrons",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Patron",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "api",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "user update",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Cairo",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01000455834",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "2000-04-03",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base}}/api/patrons/6",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"patrons",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrow",
+			"item": [
+				{
+					"name": "Borrow",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/borrow/13/patron/6",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"borrow",
+								"13",
+								"patron",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/return/13/patron/6",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"return",
+								"13",
+								"patron",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.collectionVariables.set(\"TOKEN\", jsonData.jwt);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"osharif\",\n    \"password\" : \"123456789\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base}}/api/authenticate",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"api",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "base",
+			"value": "http://127.0.0.1:8080",
+			"type": "string"
+		},
+		{
+			"key": "jwt",
+			"value": ""
+		}
+	]
+}
