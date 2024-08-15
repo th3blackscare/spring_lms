@@ -1,5 +1,7 @@
 package com.osharif.spring_lms.Models;
 
+import com.osharif.spring_lms.Services.BookService;
+import com.osharif.spring_lms.Services.PatronService;
 import jakarta.persistence.*;
 import jdk.jfr.Unsigned;
 
@@ -14,9 +16,13 @@ public class Borrow {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Unsigned
     private long id;
-    private long bookId;
+    @ManyToOne
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book book;
     private long userId;
-    private long patronId;
+    @ManyToOne
+    @JoinColumn(name = "patron_id", nullable = false)
+    private Patron patron;
     private LocalDate borrowDate = LocalDate.now();
     private LocalDate returnDate;
 
@@ -24,9 +30,9 @@ public class Borrow {
 
     public Borrow( long bookId, long userId, long patronId) {
         this.id = id;
-        this.bookId = bookId;
+        setBookId(bookId);
         this.userId = userId;
-        this.patronId = patronId;
+        setPatronId(patronId);
 //        this.borrowDate = borrowDate;
 //        this.returnDate = returnDate;
     }
@@ -36,7 +42,7 @@ public class Borrow {
     }
 
     public long getBookId() {
-        return bookId;
+        return book.getId();
     }
 
     public long getUserId() {
@@ -44,7 +50,7 @@ public class Borrow {
     }
 
     public long getPatronId() {
-        return patronId;
+        return patron.getId();
     }
 
     public LocalDate getBorrowDate() {
@@ -60,7 +66,9 @@ public class Borrow {
     }
 
     public void setBookId(long bookId) {
-        this.bookId = bookId;
+        Book book1 = new Book();
+        book1.setId(bookId);
+        this.book = book1;
     }
 
     public void setUserId(long userId) {
@@ -68,7 +76,9 @@ public class Borrow {
     }
 
     public void setPatronId(long patronId) {
-        this.patronId = patronId;
+        Patron patron1 = new Patron();
+        patron1.setId(patronId);
+        this.patron = patron1;
     }
 
     public void setBorrowDate(LocalDate borrowDate) {
@@ -84,24 +94,24 @@ public class Borrow {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Borrow borrow = (Borrow) o;
-        return bookId == borrow.bookId &&
+        return book.getId() == borrow.book.getId() &&
                 Objects.equals(userId, borrow.userId) &&
-                Objects.equals(patronId, borrow.patronId) &&
+                Objects.equals(patron.getId(), borrow.patron.getId()) &&
                 Objects.equals(borrowDate, borrow.borrowDate) &&
                 Objects.equals(returnDate, borrow.returnDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bookId, userId, patronId, borrowDate, returnDate);
+        return Objects.hash(book.getId(), userId, patron.getId(), borrowDate, returnDate);
     }
 
     @Override
     public String toString() {
         return "Borrow{" +
-                "bookId=" + bookId +
+                "bookId=" + book.getId() +
                 ", userId=" + userId +
-                ", patronId=" + patronId +
+                ", patronId=" + patron.getId() +
                 ", borrowDate=" + borrowDate +
                 ", returnDate=" + returnDate +
                 '}';

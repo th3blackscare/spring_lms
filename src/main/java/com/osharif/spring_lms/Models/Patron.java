@@ -5,6 +5,7 @@ import jdk.jfr.Unsigned;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 //Contains details like ID, name, contact information, etc.
@@ -21,6 +22,8 @@ public class Patron {
     private String phone;
     private String email;
     private LocalDate birthDate;
+    @OneToMany(mappedBy = "patron")
+    private List<Borrow> borrowList;
     private boolean isActive = true;
 
     public Patron() {}
@@ -95,6 +98,10 @@ public class Patron {
     }
     public void setActive(boolean active) {
         this.isActive = active;
+    }
+
+    public List<Borrow> getBorrowList() {
+        return borrowList;
     }
 
     @Override
